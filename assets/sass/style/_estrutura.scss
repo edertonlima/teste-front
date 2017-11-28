@@ -113,9 +113,6 @@ body * {
 	}
 }
 
-.home .box-projetos {
-	padding-top: 70px;
-}
 
 .box-content {
 	@include clear;
@@ -128,15 +125,24 @@ body * {
 	}
 
 	&.border {
+		border-radius: 5px;
 		border: 1px solid $cinza;
-		border-width: 1px 0;
 	}
 
 	&.no-padding {
 		padding: 0;
 	}
+
+	.sidebar {
+		padding: 20px;
+	}
 }
 
 .no-padding-top {
 	padding-top: 0!important;
+}
+
+.border {
+	border-radius: 5px;
+	border: 1px solid $cinza;
 }

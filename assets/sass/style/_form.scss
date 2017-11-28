@@ -1,14 +1,12 @@
-input:not([type='submit']), textarea {
+input:not([type='submit']), textarea, select {
 	width: 100%;
 	margin-bottom: 5px;
-	line-height: 50px;
+	line-height: 38px;
 	color: $cinza-escuro;
 	font-weight: $regular;
-	font-size: 1.125rem;
 	display: inline-block;
-	background-color: #ffffff;
 	border-radius: 5px;
-	border: 1px solid $cinza-escuro;
+	border: 1px solid $cinza;
 	@include animacao;
 
 	&::-webkit-input-placeholder {
@@ -33,8 +31,8 @@ input:not([type='submit']), textarea {
 }
 
 input:not([type='submit']) {
-	height: 50px;
-	line-height: 50px;
+	height: 38px;
+	line-height: 38px;
 	padding: 0 15px;
 }
 
@@ -46,8 +44,8 @@ textarea {
 
 button, input[type='submit'], .btn {
 	width: auto;
-	height: 50px;
-	line-height: 50px;
+	height: 38px;
+	line-height: 38px;
 	padding: 0 35px;
 	color: $cinza-escuro;
 	font-weight: $bold;
@@ -71,6 +69,10 @@ button, input[type='submit'], .btn {
 		background-color: darken(#ffffff, 10%);
 	}
 
+	&.add-carrinho {
+		
+	}
+
 	&.enviar {
 		width: 100%;
 		background-color: $azul;
@@ -83,6 +85,50 @@ button, input[type='submit'], .btn {
 		}
 	}
 }
+
+button.none {
+
+}
+
+.select {
+	position: relative;
+
+	select {
+		padding: 0 15px;
+		height: 38px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		text-indent: 1px;
+		text-overflow: '';
+		position: relative;
+		z-index: 99;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	&:after {
+		content: "\f107";
+		position: absolute;
+		right: 24px;
+		top: 0;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1.4rem;
+		line-height: 38px;
+		font-family: FontAwesome;
+		cursor: pointer;
+		height: auto;
+		width: auto;
+		z-index: 0;
+	}
+}
+
+	/*select:after {
+		content: " ";
+		display: inline-block;
+		width: 24px; height: 24px;
+		background: blue;
+	}*/
 
 form {
 	margin: 0px auto;
@@ -129,7 +175,7 @@ form {
 }
 
 
-.select {
+/*.select {
 	overflow: hidden;
 	background-color: $cinza;
 	line-height: 44px;
@@ -153,18 +199,8 @@ form {
 		cursor: pointer;
 	}
 
-	&:after {
-		content: "\f107";
-		position: absolute;
-		right: 13px;
-		top: 12px;
-		font: normal normal normal 46px/1 FontAwesome;
-		cursor: pointer;
-		height: 15px;
-		line-height: 15px;
-		z-index: 0;
-	}
-}
+
+}*/
 
 .msg-form {
 	text-align: center;
