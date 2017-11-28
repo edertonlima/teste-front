@@ -118,7 +118,7 @@ button, input[type='submit'], .btn {
 	position: relative;
 
 	select {
-		padding: 0 15px;
+		padding: 0 25px 0 5px;
 		height: 38px;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -197,34 +197,6 @@ form {
 		}
 	}
 }
-
-
-/*.select {
-	overflow: hidden;
-	background-color: $cinza;
-	line-height: 44px;
-	height: 40px;
-	padding: 0 0 0 10px;
-	margin-bottom: 20px;
-	display: block;
-	position: relative;
-	@include box-sizing();
-
-	select {
-		width: 88%;
-		padding-right: 135px;
-		background-color: transparent;
-		font-weight: $regular;
-		font-size: 1.125rem;
-		color: $cinza-escuro;
-		box-sizing: content-box;
-		position: relative;
-		z-index: 99;
-		cursor: pointer;
-	}
-
-
-}*/
 
 .msg-form {
 	text-align: center;
