@@ -70,7 +70,18 @@ button, input[type='submit'], .btn {
 	}
 
 	&.add-carrinho {
-		
+		font-size: .8125rem;
+		color: $azul;
+		font-weight: $bold;
+		border: none;
+		line-height: normal;
+		height: auto;
+		padding: 0;
+
+		&:hover {
+			color: $verde;
+			background-color: transparent;
+		}
 	}
 
 	&.enviar {

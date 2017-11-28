@@ -92,11 +92,11 @@ body * {
 		}
 	}
 
-	.col-4:nth-child(4n+1) {
+	.col-4:nth-child(3n+1) {
 		@include clear;
 	}
 
-	.col-3:nth-child(3n+1) {
+	.col-3:nth-child(2n+1) {
 		@include clear;
 	}
 
