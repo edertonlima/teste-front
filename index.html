@@ -45,32 +45,9 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css" media="screen" />
 
 	<!-- JQUERY -->
 	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-
-
-	<script type="text/javascript">
-		jQuery.noConflict();
-
-		jQuery(document).ready(function(){
-
-		});	
-
-		jQuery(window).load(function(){
-
-		});
-
-		jQuery(window).resize(function(){
-
-		});
-
-		jQuery(window).scroll(function(){
-
-		});
-	</script>
 
 </head>
 <body class="home">
@@ -96,171 +73,24 @@
 
 					<div class="col-4 select">
 						<select id="filtro">
-							<option value="preco">filtrar por preço</option>
-							<option value="score">filtrar por popularidade</option>
-							<option value="nome">filtrar por nome</option>
+							<option value="score" selected>filtrar por popularidade</option>
+							<option value="price">filtrar por preço</option>
+							<option value="name">filtrar por nome</option>
 						</select>
 					</div>
 
-					<ul class="list-produto" id="list-produto">
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-
-						<li class="col-4">
-							<a href="javascript:" title="">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="add-carrinho" type="button" prod-id="" prod-name="" prod-price="" prod-score="">adicionar aocarrinho</button>
-									</div>
-								</div>
-							</a>
-						</li>
-					</ul>
+					<ul class="list-produto" id="list-produto"></ul>
 				</div>
 
 				<div class="col-3 border">
 					<div class="sidebar carrinho">
-						<h3>Carrinho <span id="itens-car">(3 itens)</span></h3>
+						<h3>Carrinho <span id="itens-car">(0 itens)</span></h3>
 
-						<ul class="list-produto" id="carrinho-produto">
-							<li class="item-carrinho">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="remove-carrinho" type="button" prod-id="" prod-name="" prod-price="" prod-score=""><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-									</div>
-								</div>								
-							</li>
-
-							<li class="item-carrinho">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="remove-carrinho" type="button" prod-id="" prod-name="" prod-price="" prod-score=""><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-									</div>
-								</div>								
-							</li>
-
-							<li class="item-carrinho">
-								<div class="img-list-produto">
-									<img src="assets/images/call-of-duty-infinite-warfare.png" alt="">
-								</div>
-								<div class="content-produto">
-									<div class="detalhe-produto">
-										<h4>Super Mario Odyss - Switch</h4>
-										<span class="preco">R$ 197,88</span>
-									</div>
-									<div class="hover-produto">
-										<button class="add-carrinho" id="remove-carrinho" type="button" prod-id="" prod-name="" prod-price="" prod-score=""><i class="fa fa-times-circle" aria-hidden="true"></i></button>
-									</div>
-								</div>								
-							</li>
-						</ul>
+						<ul class="list-produto" id="carrinho-produto"></ul>
 
 						<div class="info-carrinho">
 							<span class="item">
-								subtotal <strong id="subtotal">R$ 315,37</strong>
+								subtotal <strong id="subtotal">R$ 0,00</strong>
 							</span>
 
 							<span class="item frete">
@@ -268,7 +98,7 @@
 							</span>
 
 							<span class="item total">
-								total <strong id="total">R$ 315,37</strong>
+								total <strong id="total">R$ 0,00</strong>
 							</span>
 
 							<button class="finalizar">finalizar compra</button>
@@ -284,3 +114,119 @@
 
 </body>
 </html>
+
+
+<script type="text/javascript">
+	var produtos = '';
+	var data = '';
+	var qtdCarrinho = 0;
+	var subtotal = 0;
+
+	function filtrapor_score(x,y) {
+		return x.score - y.score; 
+	}
+
+	function filtrapor_price(x,y) {
+		return (x.price < y.price) ? -1 : (x.price > y.price) ? 1 : 0;
+	}
+
+	function filtrapor_nome(x,y) {
+		return ((x.name == y.name) ? 0 : ((x.name > y.name) ? 1 : -1 ));
+	}
+
+	function addCarrinho(price,name,id,image){
+		qtdCarrinho = qtdCarrinho+1;
+		frete = (qtdCarrinho*10.00);
+		subtotal = parseFloat(subtotal)+parseFloat(price);
+		total = subtotal+frete;
+		if(qtdCarrinho == 1){
+			txt_qtd = '(1 item)';
+		}else{
+			txt_qtd = '('+qtdCarrinho+' itens)';
+		}
+		
+		jQuery('#itens-car').html(txt_qtd);
+		jQuery('#frete').html('R$ '+frete);
+		jQuery('#subtotal').html('R$ '+subtotal);
+		jQuery('#total').html('R$ '+total);
+	}
+
+	function montaProdutos(data,filtro){
+		jQuery('#list-produto').html('<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw loading"></i>');
+
+		if(filtro == 'score'){
+			data.sort(filtrapor_score);
+		}
+
+		if(filtro == 'name'){
+			data.sort(filtrapor_nome);
+		}
+
+		if(filtro == 'price'){
+			data.sort(filtrapor_price);
+		}
+
+		produtos = '';
+		jQuery.each(data, function (key, val) {
+			produtos += '<li class="col-4">';
+				produtos += '<a href="javascript:" title="'+val.name+'">';
+					produtos += '<div class="img-list-produto">';
+						produtos += '<img src="assets/images/'+val.image+'" alt="'+val.name+'">';
+					produtos += '</div>';
+					produtos += '<div class="content-produto">';
+						produtos += '<div class="detalhe-produto">';
+							produtos += '<h4>'+val.name+'</h4>';
+							produtos += '<span class="preco">R$ '+val.price+'</span>';
+						produtos += '</div>';
+						produtos += '<div class="hover-produto">';
+							produtos += '<button class="add-carrinho" type="button" prod-id="'+val.id+'" prod-name="'+val.name+'" prod-price="'+val.price+'" prod-image="'+val.image+'">adicionar aocarrinho</button>';
+						produtos += '</div>';
+					produtos += '</div>';
+				produtos += '</a>';
+			produtos += '</li>';
+		});
+
+		setTimeout(function(){
+
+			jQuery('#list-produto').html(produtos);
+
+			jQuery('.add-carrinho').click(function(){
+
+				price = jQuery(this).attr('prod-price');
+				name = jQuery(this).attr('prod-name');
+				id = jQuery(this).attr('prod-id');
+				image = jQuery(this).attr('prod-image');
+
+				produtos_carrinho = '';
+				produtos_carrinho += '<li class="item-carrinho" id="'+id+'">';
+					produtos_carrinho += '<div class="img-list-produto">';
+						produtos_carrinho += '<img src="assets/images/'+image+'" alt="">';
+					produtos_carrinho += '</div>';
+					produtos_carrinho += '<div class="content-produto">';
+						produtos_carrinho += '<div class="detalhe-produto">';
+							produtos_carrinho += '<h4>'+name+'</h4>';
+							produtos_carrinho += '<span class="preco">R$ '+price+'</span>';
+						produtos_carrinho += '</div>';
+						produtos_carrinho += '<div class="hover-produto">';
+							produtos_carrinho += '<button class="add-carrinho" id="remove-carrinho" type="button" prod-id="'+id+'"><i class="fa fa-times-circle" aria-hidden="true"></i></button>';
+						produtos_carrinho += '</div>';
+					produtos_carrinho += '</div>';							
+				produtos_carrinho += '</li>';
+
+				jQuery('#carrinho-produto').append(produtos_carrinho);
+				addCarrinho(price,name,id,image);
+
+			});
+
+		},500);
+	}
+
+	jQuery(document).ready(function(){ 
+		jQuery.getJSON('produtos.json', function(data){			
+			jQuery("#filtro").change(function () {
+				montaProdutos(data,jQuery(this).val());
+			}).change();
+		});
+	});
+
+</script>

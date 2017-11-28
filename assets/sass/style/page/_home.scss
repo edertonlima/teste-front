@@ -4,6 +4,13 @@
 	float: left;
 	width: 100%;
 
+	.loading {
+		color: $cinza;
+		display: block;
+		margin: 200px auto;
+		@include animacao;
+	}
+
 	li {
 		margin-top: 30px;
 
