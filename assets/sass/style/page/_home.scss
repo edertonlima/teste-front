@@ -1,6 +1,8 @@
 .list-produto {
-	display: block;
 	margin-top: 20px;
+	clear: both;
+	float: left;
+	width: 100%;
 
 	li {
 		margin-top: 30px;
@@ -23,15 +25,10 @@
 		}
 
 		.content-produto {
-			width: 100%;
-			padding: 20px;
-			display: table;
 			@include box-sizing;
 
 			.detalhe-produto, .hover-produto {
-				height: 50px;
 				width: 100%;
-				text-align: center;
 				display: table-cell;
 				vertical-align: middle;
 				@include animacao;
@@ -39,8 +36,8 @@
 
 			.detalhe-produto {
 				h4 {
-					overflow: hidden;
-					height: 25px;
+					//overflow: hidden;
+					//height: 25px;
 					line-height: 22px;
 				}
 
@@ -54,12 +51,22 @@
 			}
 
 			.hover-produto { 
+				@include animacao;
+				height: 46px;
 				display: none;
 			}
 		}
 
 		a {
 			cursor: pointer;
+			@include animacao;
+
+			.content-produto {
+				width: 100%;
+				text-align: center;
+				padding: 20px;
+				display: table;
+			}
 
 			&:hover {
 				.img-list-produto {
@@ -75,6 +82,111 @@
 
 				.hover-produto {
 					display: table-cell;
+				}
+			}
+		}
+	}
+}
+
+.carrinho {
+	padding: 0;
+
+	h3 {
+		padding-left: 10px;
+	}
+
+	li.item-carrinho {
+		margin-top: 20px;
+		@include clear;
+
+		&:first-child {
+			margin-top: 15px;
+		}
+
+		.img-list-produto, .content-produto {
+			float: left;
+			@include box-sizing;
+		}
+
+		.img-list-produto {
+			padding: 7px;
+			width: 33%;
+		}
+
+		.content-produto {
+			display: table;
+			padding: 10px;
+			width: 67%;
+			position: relative;
+
+			.detalhe-produto {
+				height: 55px;
+			}
+
+			h4, .preco {
+				font-size: 1rem;
+				line-height: 1.125rem;
+			}
+
+			.preco {
+				color: $cinza-escuro;
+			}
+
+			.hover-produto {
+				position: absolute;
+				right: -4px;
+				top: 50%;
+				width: auto;
+				height: auto;
+				margin-top: -10px;
+
+				i {
+					color: $azul;
+					font-size: 1.5rem;
+					@include animacao;
+				}
+
+				button:hover {
+					i {
+						color: $verde;
+					}
+				}
+			}
+		}
+
+		&:hover {
+			.hover-produto {
+				display: block;
+			}
+		}
+	}
+
+	.info-carrinho {
+		margin-top: 15px;
+		float: left;
+		@include clear;
+		width: 100%;
+
+		.item {
+			display: block;
+			margin-top: 15px;
+			font-size: 1rem;
+			line-height: 1.5rem;
+
+			strong {
+				font-size: 1.225;
+				float: right;
+			}
+
+			&.frete {
+				strong {
+					font-size: 1rem;
+				}
+			}
+
+			&.total {
+				strong {
+					font-size: 1.5rem;
 				}
 			}
 		}

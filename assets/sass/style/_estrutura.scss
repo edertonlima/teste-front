@@ -134,7 +134,12 @@ body * {
 	}
 
 	.sidebar {
-		padding: 20px;
+		padding: 10px;
+		overflow: hidden;
+
+		.list-produto {
+			margin: 0;
+		}
 	}
 }
 

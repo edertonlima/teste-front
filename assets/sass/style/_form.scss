@@ -95,11 +95,24 @@ button, input[type='submit'], .btn {
 			background-color: darken($azul, 10%);
 		}
 	}
+
+	&.finalizar {
+		background-color: $azul;
+		height: 50px;
+		line-height: 50px;
+		width: 100%;
+		color: #ffffff;
+		border: none;
+		font-size: .85rem;
+		text-transform: none;
+		margin-top: 30px;
+
+		&:hover {
+			background-color: $verde;;
+		}
+	}
 }
 
-button.none {
-
-}
 
 .select {
 	position: relative;
