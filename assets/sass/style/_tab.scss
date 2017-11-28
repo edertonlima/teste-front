@@ -1,0 +1,98 @@
+.nav-tab {
+	width: 100%;
+	display: block;
+	margin-bottom: 70px;
+
+	ul {
+
+		li {
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+
+			a {
+				margin-left: -4px;
+				display: block;
+				font-size: 1.5rem;
+				line-height: 70px;
+				height: 70px;
+				font-weight: $bold;
+				padding: 0px 50px;
+				text-decoration: none;
+				text-transform: uppercase;
+				@include animacao();
+
+				&:after {
+					content: '';
+					height: 5px;
+					position: relative;
+					bottom: 5px;
+					width: 0;
+					left: 0;
+					display: block;
+					margin: 0 auto;
+					@include animacao();
+				}
+
+				@media all and (max-width: 700px){
+					font-size: 1rem;
+					line-height: 35px;
+					height: 35px;
+					padding: 0px 25px;
+
+					&:after {
+						height: 3px;
+					}
+				}
+
+				@media all and (max-width: 400px){
+					font-size: .9rem;
+					padding: 0px 15px;
+				}
+			}
+
+			@media all and (max-width: 400px){
+				border-left-width: 2px;
+			}
+
+			&.active {
+				> a {
+
+					&:after {
+						width: 100%;
+					}
+				}
+			}
+
+			&:hover {
+				> a {
+					&:after {
+						width: 100%;
+					}
+				}
+			}
+
+			&:first-child {
+				a {
+					margin-left: 0;
+					border: none;
+				}
+			}
+		}
+	}
+}
+
+.content-tab {
+	display: block;
+	@include clear;
+
+	.tab {
+		display: none;
+		@include clear;
+
+		&.active {
+			display: block;
+		}
+	}
+}
