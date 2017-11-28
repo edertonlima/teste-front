@@ -134,21 +134,67 @@
 		return ((x.name == y.name) ? 0 : ((x.name > y.name) ? 1 : -1 ));
 	}
 
-	function addCarrinho(price,name,id,image){
+	function moeda(valor){
+		/*Number.prototype.toFixed = {};
+		valor = Number(valor).toFixed(2);
+		valor = valor.replace('.', ',');
+		valor = 'R$ '+valor;
+		return valor;*/
+
+		//total=valor;
+		valor = Number(valor).toFixed(2).replace('.', ',');
+		valor = 'R$ '+valor;
+		return valor;
+	}
+
+	/*function moeda(valor){
+		valor = valor.toFixed(2);
+		valor = valor.replace('.', ',');
+		valor = 'R$ '+valor;
+		return valor;
+	}*/
+
+	function addCarrinho(price,name,id,image,qtd_item){
 		qtdCarrinho = qtdCarrinho+1;
 		frete = (qtdCarrinho*10.00);
 		subtotal = parseFloat(subtotal)+parseFloat(price);
 		total = subtotal+frete;
+		
 		if(qtdCarrinho == 1){
 			txt_qtd = '(1 item)';
 		}else{
 			txt_qtd = '('+qtdCarrinho+' itens)';
 		}
 		
+		if(qtd_item > 1){
+			jQuery('#'+id+' .qtd-prod').html('x'+qtd_item);
+			jQuery('#'+id+' .remove-carrinho').attr('qtd-prod',qtd_item);
+		}
+
 		jQuery('#itens-car').html(txt_qtd);
-		jQuery('#frete').html('R$ '+frete);
-		jQuery('#subtotal').html('R$ '+subtotal);
-		jQuery('#total').html('R$ '+total);
+		jQuery('#frete').html(moeda(frete));
+		jQuery('#subtotal').html(moeda(subtotal));
+		jQuery('#total').html(moeda(total));
+	}
+
+	function removeCarrinho(price,id,qtdprod){
+		qtdCarrinho = qtdCarrinho-qtdprod;
+		frete = (qtdCarrinho*10.00);
+		subtotal = parseFloat(subtotal)-(parseFloat(price)*qtdprod);
+		total = subtotal+frete;
+
+		if(qtdCarrinho == 1){
+			txt_qtd = '(1 item)';
+		}else{
+			txt_qtd = '('+qtdCarrinho+' itens)';
+		}
+
+		jQuery('#'+id).remove();
+		
+		jQuery('#itens-car').html(txt_qtd);
+		jQuery('#frete').html(moeda(frete));
+		jQuery('#subtotal').html(moeda(subtotal));
+		jQuery('#total').html(moeda(total));
 	}
 
 	function montaProdutos(data,filtro){
@@ -176,7 +222,7 @@
 					produtos += '<div class="content-produto">';
 						produtos += '<div class="detalhe-produto">';
 							produtos += '<h4>'+val.name+'</h4>';
-							produtos += '<span class="preco">R$ '+val.price+'</span>';
+							produtos += '<span class="preco">'+moeda(val.price)+'</span>';
 						produtos += '</div>';
 						produtos += '<div class="hover-produto">';
 							produtos += '<button class="add-carrinho" type="button" prod-id="'+val.id+'" prod-name="'+val.name+'" prod-price="'+val.price+'" prod-image="'+val.image+'">adicionar aocarrinho</button>';
@@ -187,39 +233,52 @@
 		});
 
 		setTimeout(function(){
-
 			jQuery('#list-produto').html(produtos);
-
-			jQuery('.add-carrinho').click(function(){
-
-				price = jQuery(this).attr('prod-price');
-				name = jQuery(this).attr('prod-name');
-				id = jQuery(this).attr('prod-id');
-				image = jQuery(this).attr('prod-image');
-
-				produtos_carrinho = '';
-				produtos_carrinho += '<li class="item-carrinho" id="'+id+'">';
-					produtos_carrinho += '<div class="img-list-produto">';
-						produtos_carrinho += '<img src="assets/images/'+image+'" alt="">';
-					produtos_carrinho += '</div>';
-					produtos_carrinho += '<div class="content-produto">';
-						produtos_carrinho += '<div class="detalhe-produto">';
-							produtos_carrinho += '<h4>'+name+'</h4>';
-							produtos_carrinho += '<span class="preco">R$ '+price+'</span>';
-						produtos_carrinho += '</div>';
-						produtos_carrinho += '<div class="hover-produto">';
-							produtos_carrinho += '<button class="add-carrinho" id="remove-carrinho" type="button" prod-id="'+id+'"><i class="fa fa-times-circle" aria-hidden="true"></i></button>';
-						produtos_carrinho += '</div>';
-					produtos_carrinho += '</div>';							
-				produtos_carrinho += '</li>';
-
-				jQuery('#carrinho-produto').append(produtos_carrinho);
-				addCarrinho(price,name,id,image);
-
-			});
-
 		},500);
 	}
+
+	jQuery(document).on('click', '.add-carrinho', function(){
+		price = jQuery(this).attr('prod-price');
+		name = jQuery(this).attr('prod-name');
+		id = jQuery(this).attr('prod-id');
+		image = jQuery(this).attr('prod-image');
+
+		produto_on = false;
+		jQuery('#carrinho-produto li').each(function() {
+			if(id == jQuery(this).attr('id')){
+				produto_on = true;
+			}
+		});
+
+		if(produto_on){
+			qtd_item = jQuery('#'+id+' .remove-carrinho').attr('qtd-prod'); //alert(qtd_item);
+			qtd_item = Number(qtd_item)+1;
+			addCarrinho(price,name,id,image,qtd_item);
+		}else{
+			produtos_carrinho = '';
+			produtos_carrinho += '<li class="item-carrinho" id="'+id+'">';
+				produtos_carrinho += '<div class="img-list-produto">';
+					produtos_carrinho += '<img src="assets/images/'+image+'" alt="">';
+				produtos_carrinho += '</div>';
+				produtos_carrinho += '<div class="content-produto">';
+					produtos_carrinho += '<div class="detalhe-produto">';
+						produtos_carrinho += '<h4>'+name+'</h4>';
+						produtos_carrinho += '<span class="preco">'+moeda(price)+'<span class="qtd-prod"></span></span>';
+					produtos_carrinho += '</div>';
+					produtos_carrinho += '<div class="hover-produto">';
+						produtos_carrinho += '<button class="remove-carrinho" type="button" prod-id="'+id+'" prod-price="'+price+'" qtd-prod="1"><i class="fa fa-times-circle" aria-hidden="true"></i></button>';
+					produtos_carrinho += '</div>';
+				produtos_carrinho += '</div>';							
+			produtos_carrinho += '</li>';
+
+			jQuery('#carrinho-produto').append(produtos_carrinho);
+			addCarrinho(price,name,id,image,1);
+		}
+	});
+
+	jQuery(document).on('click', '.remove-carrinho', function(){
+		removeCarrinho(jQuery(this).attr('prod-price'),jQuery(this).attr('prod-id'),jQuery(this).attr('qtd-prod'));
+	});
 
 	jQuery(document).ready(function(){ 
 		jQuery.getJSON('produtos.json', function(data){			

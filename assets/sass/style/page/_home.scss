@@ -137,6 +137,12 @@
 
 			.preco {
 				color: $cinza-escuro;
+
+				.qtd-prod {
+					color: $cor-txt;
+					font-size: .875rem;
+					margin-left: 6px;
+				}
 			}
 
 			.hover-produto {

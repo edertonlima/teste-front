@@ -69,7 +69,7 @@ button, input[type='submit'], .btn {
 		background-color: darken(#ffffff, 10%);
 	}
 
-	&.add-carrinho {
+	&.add-carrinho, &.remove-carrinho {
 		font-size: .8125rem;
 		color: $azul;
 		font-weight: $bold;
